@@ -3,6 +3,7 @@ const container = document.querySelector('.container');
 const btnDiv = document.querySelector('.forBtn');
 const button = document.createElement('button');
 button.textContent = 'Change Size';
+button.classList.add('button');
 btnDiv.appendChild(button);
 
 for (let i = 0; i < 256; i++){
