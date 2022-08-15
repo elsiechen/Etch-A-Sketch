@@ -1,5 +1,10 @@
 const container = document.querySelector('.container');
 
+const btnDiv = document.querySelector('.forBtn');
+const button = document.createElement('button');
+button.textContent = 'Change Size';
+btnDiv.appendChild(button);
+
 for (let i = 0; i < 256; i++){
     let grid = document.createElement('div');
     grid.classList.add('grid');
@@ -15,5 +20,7 @@ gridDivs.forEach(gridDiv => {
         gridDiv.classList.remove('gridHover');
     });
 });
+
+
 
 
