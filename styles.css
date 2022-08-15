@@ -13,6 +13,10 @@ html {
     background-color: gold;
 }
 
+.gridHover{
+    background-color: blueviolet;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;

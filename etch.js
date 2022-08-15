@@ -6,4 +6,14 @@ for (let i = 0; i < 256; i++){
     container.appendChild(grid);
 }
 
+let gridDivs = document.querySelectorAll('.grid'); 
+gridDivs.forEach(gridDiv => {
+    gridDiv.addEventListener('mouseover', ()=> {
+        gridDiv.classList.add('gridHover');
+    });
+    gridDiv.addEventListener('mouseleave', ()=> {
+        gridDiv.classList.remove('gridHover');
+    });
+});
+
 
