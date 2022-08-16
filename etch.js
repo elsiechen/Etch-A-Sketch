@@ -14,25 +14,23 @@ button.addEventListener('click', () => {
     
     // Remove old grid
     container.textContent = '';
+
     // Create new grid
     newGrid(number);
+
+    // Activate hover effect
+    hover();
 });
 
+// Original 256*256 grid
 for (let i = 0; i < 256; i++){
     let grid = document.createElement('div');
     grid.classList.add('grid');
     container.appendChild(grid);
 }
+// Activate hover effect
+hover();
 
-let gridDivs = document.querySelectorAll('.grid'); 
-gridDivs.forEach(gridDiv => {
-    gridDiv.addEventListener('mouseover', ()=> {
-        gridDiv.classList.add('gridHover');
-    });
-    gridDiv.addEventListener('mouseleave', ()=> {
-        gridDiv.classList.remove('gridHover');
-    });
-});
 
 function newGrid(number){
     for (let i = 0; i < number*number; i++){
@@ -45,5 +43,17 @@ function newGrid(number){
     }
 }
 
-
+function hover(){
+    let gridDivs = document.querySelectorAll('.grid'); 
+    gridDivs.forEach(gridDiv => {
+        gridDiv.addEventListener('mouseover', ()=> {
+            gridDiv.classList.add('gridHover');
+            console.log('mousehover grid');
+        });
+        gridDiv.addEventListener('mouseleave', ()=> {
+            gridDiv.classList.remove('gridHover');
+            console.log('mouseleave grid');
+        });
+    });
+}
 
