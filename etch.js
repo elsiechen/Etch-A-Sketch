@@ -19,7 +19,7 @@ button.addEventListener('click', () => {
     newGrid(number);
 
     // Activate hover effect
-    hover();
+    hoverRanbow();
 });
 
 // Original 256*256 grid
@@ -29,7 +29,7 @@ for (let i = 0; i < 256; i++){
     container.appendChild(grid);
 }
 // Activate hover effect
-hover();
+hoverRanbow();
 
 
 function newGrid(number){
@@ -43,7 +43,7 @@ function newGrid(number){
     }
 }
 
-function hover(){
+function hoverRanbow(){
     let gridDivs = document.querySelectorAll('.grid'); 
     gridDivs.forEach(gridDiv => {
         gridDiv.addEventListener('mouseover', ()=> {
@@ -56,10 +56,10 @@ function hover(){
             console.log(`rgba(${value1},${value2},${value3})`);
             console.log('mousehover grid');
         });
-        gridDiv.addEventListener('mouseleave', ()=> {
-            gridDiv.style.cssText = 'background-color:gold';
-            console.log('mouseleave grid');
-        });
+        //gridDiv.addEventListener('mouseleave', ()=> {
+        //    gridDiv.style.cssText = 'background-color:gold';
+        //    console.log('mouseleave grid');
+        //});
     });
 }
 
