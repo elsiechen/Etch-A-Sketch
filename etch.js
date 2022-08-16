@@ -1,5 +1,6 @@
 const container = document.querySelector('.container');
-let widthContainer = 800;
+// Container width in px
+let widthContainer = 600;
 
 const btnDiv = document.querySelector('.forBtn');
 const button = document.createElement('button');
@@ -38,7 +39,6 @@ function newGrid(number){
         let grid = document.createElement('div');
         grid.classList.add('grid');
         // Change grid width and height based on number
-        let widthContainer = 800;
         grid.style.cssText = `width:${widthContainer/number}px; height:${widthContainer/number}px`;
         container.appendChild(grid);
     }
