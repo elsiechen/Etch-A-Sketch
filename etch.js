@@ -14,6 +14,8 @@ button.addEventListener('click', () => {
     
     // Remove old grid
     container.textContent = '';
+    // Create new grid
+    newGrid(number);
 });
 
 for (let i = 0; i < 256; i++){
@@ -32,6 +34,16 @@ gridDivs.forEach(gridDiv => {
     });
 });
 
+function newGrid(number){
+    for (let i = 0; i < number*number; i++){
+        let grid = document.createElement('div');
+        grid.classList.add('grid');
+        // Change grid width and height based on number
+        let widthContainer = 800;
+        grid.style.cssText = `width:${widthContainer/number}px; height:${widthContainer/number}px`;
+        container.appendChild(grid);
+    }
+}
 
 
 
