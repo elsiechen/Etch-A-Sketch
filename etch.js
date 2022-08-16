@@ -48,10 +48,16 @@ function hover(){
     gridDivs.forEach(gridDiv => {
         gridDiv.addEventListener('mouseover', ()=> {
             gridDiv.classList.add('gridHover');
+            // Random color
+            let value1 = Math.floor(Math.random()*256);
+            let value2 = Math.floor(Math.random()*256);
+            let value3 = Math.floor(Math.random()*256);
+            gridDiv.style.cssText = `background-color:rgb(${value1},${value2},${value3})`;
+            console.log(`rgba(${value1},${value2},${value3})`);
             console.log('mousehover grid');
         });
         gridDiv.addEventListener('mouseleave', ()=> {
-            gridDiv.classList.remove('gridHover');
+            gridDiv.style.cssText = 'background-color:gold';
             console.log('mouseleave grid');
         });
     });
