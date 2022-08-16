@@ -1,4 +1,5 @@
 const container = document.querySelector('.container');
+let widthContainer = 800;
 
 const btnDiv = document.querySelector('.forBtn');
 const button = document.createElement('button');
@@ -19,17 +20,17 @@ button.addEventListener('click', () => {
     newGrid(number);
 
     // Activate hover effect
-    hoverRanbow();
+    hoverRainbow(number);
 });
 
-// Original 256*256 grid
-for (let i = 0; i < 256; i++){
+// Original 16*16 grid
+for (let i = 0; i < 16*16; i++){
     let grid = document.createElement('div');
     grid.classList.add('grid');
     container.appendChild(grid);
 }
 // Activate hover effect
-hoverRanbow();
+hoverRainbow(16);
 
 
 function newGrid(number){
@@ -43,16 +44,18 @@ function newGrid(number){
     }
 }
 
-function hoverRanbow(){
+function hoverRainbow(number){
     let gridDivs = document.querySelectorAll('.grid'); 
     gridDivs.forEach(gridDiv => {
         gridDiv.addEventListener('mouseover', ()=> {
-            gridDiv.classList.add('gridHover');
+            // gridDiv.classList.add('gridHover');
             // Random color
             let value1 = Math.floor(Math.random()*256);
             let value2 = Math.floor(Math.random()*256);
             let value3 = Math.floor(Math.random()*256);
-            gridDiv.style.cssText = `background-color:rgb(${value1},${value2},${value3})`;
+            gridDiv.style.cssText = `background-color:rgb(${value1},${value2},${value3});
+                                    width:${widthContainer/number}px; 
+                                    height:${widthContainer/number}px;`;
             console.log(`rgba(${value1},${value2},${value3})`);
             console.log('mousehover grid');
         });
