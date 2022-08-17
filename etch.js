@@ -24,6 +24,24 @@ button.addEventListener('click', () => {
     hoverRainbow(number);
 });
 
+// Slide bar function
+let size = document.querySelector('#sizeRange');
+let sizeText = document.querySelector('.sizeText');
+size.addEventListener('input', () => changeSize(size.value));
+
+function changeSize(size){
+    // Remove old grid
+    container.textContent = '';
+
+    // Create new grid
+    newGrid(size);
+
+    // Update size text
+    sizeText.textContent = `${size} * ${size}`;
+    console.log('size', size);
+}
+
+
 // Original 16*16 grid
 for (let i = 0; i < 16*16; i++){
     let grid = document.createElement('div');
