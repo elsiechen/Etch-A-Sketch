@@ -38,11 +38,11 @@ body{
 }
 
 .button{
-    background-color: #1876F2;
+    background-color: #aaabad;
     padding: 0.5rem 1rem;
     margin-bottom: 0.5rem;
     border-radius: 0.5rem;
-    border: none;
+    border: 2px solid gold;
     color: gold;
     width: 150px;
     font-size: 18px;
