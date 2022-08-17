@@ -21,7 +21,7 @@ body{
     font-size: 80px;
     font-weight: bolder;
     font-family:Arial, Helvetica, sans-serif;
-    color: rgba(55, 55, 235, 0.806);
+    color: #1876F2;
     padding-bottom: 40px;
 }
 
@@ -38,18 +38,20 @@ body{
 }
 
 .button{
-    background-color: rgb(138, 43, 226);
-    padding: 0.5rem;
+    background-color: #1876F2;
+    padding: 0.5rem 1rem;
     margin-bottom: 0.5rem;
     border-radius: 0.5rem;
     border: none;
     color: gold;
+    width: 150px;
+    font-size: 18px;
 }
 
 .button:hover{
     transform: scale(1.1);
     box-shadow: 3px 5px 5px rgb(177, 177, 177);
-    background-color: rgb(138, 43, 226, 0.7);
+    background-color: #619dec;
 }
 
 .grid{
