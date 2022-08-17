@@ -72,6 +72,13 @@ body{
     
 }
 
+.sizeDiv{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: gold;
+}
+
 footer{
     margin-top: 35px;
 }
