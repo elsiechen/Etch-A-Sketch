@@ -43,11 +43,12 @@ function changeSize(size){
 
 
 // Original 16*16 grid
-for (let i = 0; i < 16*16; i++){
-    let grid = document.createElement('div');
-    grid.classList.add('grid');
-    container.appendChild(grid);
-}
+newGrid(16);
+//for (let i = 0; i < 16*16; i++){
+//    let grid = document.createElement('div');
+//    grid.classList.add('grid');
+//    container.appendChild(grid);
+//}
 // Activate hover effect
 hoverRainbow(16);
 
@@ -74,8 +75,8 @@ function hoverRainbow(number){
             gridDiv.style.cssText = `background-color:rgb(${value1},${value2},${value3});
                                     width:${widthContainer/number}px; 
                                     height:${widthContainer/number}px;`;
-            console.log(`rgba(${value1},${value2},${value3})`);
-            console.log('mousehover grid');
+            //console.log(`rgba(${value1},${value2},${value3})`);
+            //console.log('mousehover grid');
         });
         //gridDiv.addEventListener('mouseleave', ()=> {
         //    gridDiv.style.cssText = 'background-color:gold';
@@ -84,3 +85,14 @@ function hoverRainbow(number){
     });
 }
 
+//// clearAll not finish
+const clear = document.querySelector('.clear.button');
+clear.addEventListener('click', () => clearAll());
+
+function clearAll(){
+    // Remove old grid
+    container.textContent = '';
+
+    // Create new grid
+    newGrid(size.value);
+}
