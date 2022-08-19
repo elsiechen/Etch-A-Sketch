@@ -91,7 +91,16 @@ function hoverRainbow(){
     });
 }
 
-
+function hoverColor(color){
+    let gridDivs = document.querySelectorAll('.grid');
+    gridDiv.forEach(gridDiv => {
+        gridDiv.addEventListener('mouseover', () => {
+            gridDiv.style.cssText = `background-color:rgb(${color});
+                                    width:${widthContainer/size.value}px; 
+                                    height:${widthContainer/size.value}px;`;
+        });
+    });
+}
 
 function clearAll(){
     // Remove old grid
