@@ -48,7 +48,7 @@ body{
     font-size: 18px;
 }
 
-.button:hover{
+.button:hover, .buttonHover{
     transform: scale(1.1);
     box-shadow: 3px 5px 5px rgb(177, 177, 177);
     background-color: #619dec;

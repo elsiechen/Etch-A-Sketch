@@ -2,10 +2,24 @@ const container = document.querySelector('.container');
 // Container width in px
 let widthContainer = 600;
 
+// Buttons
+const blackBtn = document.querySelector('.blackBtn');
+const colorPicker = document.querySelector('.colorPicker');
+const rainbowBtn = document.querySelector('.rainbow');
+const eraserBtn = document.querySelector('.eraser');
+const clearBtn = document.querySelector('.clear.button');
 
-// clear button
-const clear = document.querySelector('.clear.button');
-clear.addEventListener('click', () => clearAll());
+blackBtn.addEventListener('click', () => hoverColor('black'));
+rainbowBtn.addEventListener('click', () => hoverRainbow());
+eraserBtn.addEventListener('click', () => hoverColor('white'));
+clearBtn.addEventListener('click', () => clearAll());
+
+// Default 16*16 grid
+newGrid(16);
+
+// Default hover effect in grid and button
+hoverColor('black');
+blackBtn.classList.add('buttonHover');
 
 
 const btnDiv = document.querySelector('.forBtn');
@@ -48,15 +62,7 @@ function changeSize(size){
 }
 
 
-// Original 16*16 grid
-newGrid(16);
-//for (let i = 0; i < 16*16; i++){
-//    let grid = document.createElement('div');
-//    grid.classList.add('grid');
-//    container.appendChild(grid);
-//}
-// Activate hover effect
-hoverRainbow(16);
+
 
 
 function newGrid(number){
@@ -70,36 +76,48 @@ function newGrid(number){
 }
 
 function hoverRainbow(){
+    // Remove all buttons's hover effect
+    removeAllHover();
     let gridDivs = document.querySelectorAll('.grid'); 
     gridDivs.forEach(gridDiv => {
         gridDiv.addEventListener('mouseover', ()=> {
-            // gridDiv.classList.add('gridHover');
             // Random color
             let value1 = Math.floor(Math.random()*256);
             let value2 = Math.floor(Math.random()*256);
             let value3 = Math.floor(Math.random()*256);
             gridDiv.style.cssText = `background-color:rgb(${value1},${value2},${value3});
                                     width:${widthContainer/size.value}px; 
-                                    height:${widthContainer/size.value}px;`;
-            //console.log(`rgba(${value1},${value2},${value3})`);
-            //console.log('mousehover grid');
-        });
-        //gridDiv.addEventListener('mouseleave', ()=> {
-        //    gridDiv.style.cssText = 'background-color:gold';
-        //    console.log('mouseleave grid');
-        //});
+                                    height:${widthContainer/size.value}px;`;           
+        
+                            });
     });
+    // Add hover effect on rainbow button
+    rainbowBtn.classList.add('buttonHover');
 }
 
 function hoverColor(color){
+    // Remove all buttons's hover effect
+    removeAllHover();
+
     let gridDivs = document.querySelectorAll('.grid');
-    gridDiv.forEach(gridDiv => {
+    gridDivs.forEach(gridDiv => {
         gridDiv.addEventListener('mouseover', () => {
-            gridDiv.style.cssText = `background-color:rgb(${color});
+            gridDiv.style.cssText = `background-color:${color};
                                     width:${widthContainer/size.value}px; 
                                     height:${widthContainer/size.value}px;`;
         });
     });
+    // Add hover effect on rainbow button
+    if(color == 'black') blackBtn.classList.add('buttonHover');
+    else if(color === 'white') eraserBtn.classList.add('buttonHover');
+    
+}
+
+function removeAllHover(){
+    blackBtn.classList.remove('buttonHover');
+    colorPicker.classList.remove('buttonHover');
+    rainbowBtn.classList.remove('buttonHover');
+    eraserBtn.classList.remove('buttonHover');
 }
 
 function clearAll(){
