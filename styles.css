@@ -82,3 +82,8 @@ body{
 footer{
     margin-top: 35px;
 }
+
+a {
+    text-decoration: none;
+    color: gold;
+}
