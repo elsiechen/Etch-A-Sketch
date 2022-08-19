@@ -3,8 +3,6 @@ const container = document.querySelector('.container');
 // Container width in px
 let widthContainer = 600;
 
-
-
 // Buttons
 const blackBtn = document.querySelector('.blackBtn');
 const colorPicker = document.querySelector('.colorPicker');
@@ -20,7 +18,7 @@ let sizeText = document.querySelector('.sizeText');
 blackBtn.addEventListener('click', () => hoverColor('black'));
 rainbowBtn.addEventListener('click', () => hoverRainbow());
 eraserBtn.addEventListener('click', () => hoverColor('white'));
-clearBtn.addEventListener('click', () => clearAll());
+clearBtn.addEventListener('click', () => clearAllGrid());
 size.addEventListener('input', () => changeSize(size.value));
 colorPicker.addEventListener('click', () => {
     colorPicker.classList.add('buttonHover');
@@ -33,6 +31,7 @@ colorPicker.addEventListener('input', () => {
     let colorPicked = document.querySelector('#colorPicked').value;
     hoverColor(colorPicked);
 });
+
 
 // Default 16*16 grid
 newGrid(16);
@@ -59,9 +58,6 @@ function changeSize(size){
 }
 
 
-
-
-
 function newGrid(number){
     for (let i = 0; i < number*number; i++){
         let grid = document.createElement('div');
@@ -71,6 +67,7 @@ function newGrid(number){
         container.appendChild(grid);
     }
 }
+
 
 function hoverRainbow(){
     // Remove all buttons's hover effect
@@ -84,8 +81,7 @@ function hoverRainbow(){
             let value3 = Math.floor(Math.random()*256);
             gridDiv.style.cssText = `background-color:rgb(${value1},${value2},${value3});
                                     width:${widthContainer/size.value}px; 
-                                    height:${widthContainer/size.value}px;`;           
-        
+                                    height:${widthContainer/size.value}px;`;                   
                             });
     });
     // Add hover effect on rainbow button
@@ -119,7 +115,7 @@ function removeAllHover(){
     eraserBtn.classList.remove('buttonHover');
 }
 
-function clearAll(){
+function clearAllGrid(){
     // Remove old grid
     container.textContent = '';
 
