@@ -56,6 +56,10 @@ function changeSize(size){
     // Create new grid
     newGrid(size);
 
+    // Default hover effect in grid and button
+    hoverColor('black');
+    blackBtn.classList.add('buttonHover');
+
     // Update size text
     sizeText.textContent = `${size} * ${size}`;
     console.log('size', size);
