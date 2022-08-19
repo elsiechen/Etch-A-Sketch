@@ -126,4 +126,8 @@ function clearAll(){
 
     // Create new grid
     newGrid(size.value);
+
+    // Default hover effect in grid and button
+    hoverColor('black');
+    blackBtn.classList.add('buttonHover');
 }
