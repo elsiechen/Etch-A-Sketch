@@ -2,6 +2,12 @@ const container = document.querySelector('.container');
 // Container width in px
 let widthContainer = 600;
 
+
+// clear button
+const clear = document.querySelector('.clear.button');
+clear.addEventListener('click', () => clearAll());
+
+
 const btnDiv = document.querySelector('.forBtn');
 const button = document.createElement('button');
 button.textContent = 'Change Size';
@@ -63,7 +69,7 @@ function newGrid(number){
     }
 }
 
-function hoverRainbow(number){
+function hoverRainbow(){
     let gridDivs = document.querySelectorAll('.grid'); 
     gridDivs.forEach(gridDiv => {
         gridDiv.addEventListener('mouseover', ()=> {
@@ -73,8 +79,8 @@ function hoverRainbow(number){
             let value2 = Math.floor(Math.random()*256);
             let value3 = Math.floor(Math.random()*256);
             gridDiv.style.cssText = `background-color:rgb(${value1},${value2},${value3});
-                                    width:${widthContainer/number}px; 
-                                    height:${widthContainer/number}px;`;
+                                    width:${widthContainer/size.value}px; 
+                                    height:${widthContainer/size.value}px;`;
             //console.log(`rgba(${value1},${value2},${value3})`);
             //console.log('mousehover grid');
         });
@@ -85,9 +91,7 @@ function hoverRainbow(number){
     });
 }
 
-//// clearAll not finish
-const clear = document.querySelector('.clear.button');
-clear.addEventListener('click', () => clearAll());
+
 
 function clearAll(){
     // Remove old grid
