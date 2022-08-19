@@ -1,6 +1,9 @@
 const container = document.querySelector('.container');
+
 // Container width in px
 let widthContainer = 600;
+
+
 
 // Buttons
 const blackBtn = document.querySelector('.blackBtn');
@@ -9,10 +12,27 @@ const rainbowBtn = document.querySelector('.rainbow');
 const eraserBtn = document.querySelector('.eraser');
 const clearBtn = document.querySelector('.clear.button');
 
+// Slide bar 
+let size = document.querySelector('#sizeRange');
+let sizeText = document.querySelector('.sizeText');
+
+// Event listener
 blackBtn.addEventListener('click', () => hoverColor('black'));
 rainbowBtn.addEventListener('click', () => hoverRainbow());
 eraserBtn.addEventListener('click', () => hoverColor('white'));
 clearBtn.addEventListener('click', () => clearAll());
+size.addEventListener('input', () => changeSize(size.value));
+colorPicker.addEventListener('click', () => {
+    colorPicker.classList.add('buttonHover');
+    // Color picked
+    let colorPicked = document.querySelector('#colorPicked').value;
+    hoverColor(colorPicked);
+});
+colorPicker.addEventListener('input', () => {
+    // Color picked
+    let colorPicked = document.querySelector('#colorPicked').value;
+    hoverColor(colorPicked);
+});
 
 // Default 16*16 grid
 newGrid(16);
@@ -21,33 +41,6 @@ newGrid(16);
 hoverColor('black');
 blackBtn.classList.add('buttonHover');
 
-
-const btnDiv = document.querySelector('.forBtn');
-const button = document.createElement('button');
-button.textContent = 'Change Size';
-button.classList.add('button');
-btnDiv.appendChild(button);
-
-button.addEventListener('click', () => {
-    let number = Number(prompt('Give me a number between 0 and 100 to create a number * number grid:'));
-    // Validate number
-    if(!number) return;
-    if(number <= 0 || number >100) return;
-    
-    // Remove old grid
-    container.textContent = '';
-
-    // Create new grid
-    newGrid(number);
-
-    // Activate hover effect
-    hoverRainbow(number);
-});
-
-// Slide bar function
-let size = document.querySelector('#sizeRange');
-let sizeText = document.querySelector('.sizeText');
-size.addEventListener('input', () => changeSize(size.value));
 
 function changeSize(size){
     // Remove old grid
@@ -114,8 +107,10 @@ function hoverColor(color){
     // Add hover effect on rainbow button
     if(color == 'black') blackBtn.classList.add('buttonHover');
     else if(color === 'white') eraserBtn.classList.add('buttonHover');
-    
+    else colorPicker.classList.add('buttonHover');
+    console.log('color', color);
 }
+
 
 function removeAllHover(){
     blackBtn.classList.remove('buttonHover');
