@@ -2,6 +2,7 @@
 
 This is a browser version of toy between a sketchpad and an Etch-A-Sketch.
 
+![App Image](app.png)
 Live preview is [here](https://elsiechen.github.io/Etch-A-Sketch/).
 
 ## Project Objectives:
